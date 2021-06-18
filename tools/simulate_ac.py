@@ -37,6 +37,6 @@ def generate_ac_data(dir: str, state: str, AC_COUNT = 10, ALPHA = 0.9, N = 400) 
 if __name__ == "__main__":
     # generate_ac_data("data/harmonic_low_18_cold_fullyOpen.pkl","harmonic_low_18_cold_fullyOpen")
     
-    generate_ac_data("data/harmonic_group.pkl","group", AC_COUNT = 10, ALPHA = 0.93, N = 10000)
+    generate_ac_data("data/harmonic_group.pkl","group", AC_COUNT = 10, ALPHA = 0.9, N = 10000)
     # generate_ac_data("data/harmonic_group_1.pkl","group_1", AC_COUNT = 1, ALPHA = 0.9, N = 500)
     # generate_ac_data("data/harmonic_group_2.pkl","group_2", AC_COUNT = 1, ALPHA = 0.9, N = 500)
