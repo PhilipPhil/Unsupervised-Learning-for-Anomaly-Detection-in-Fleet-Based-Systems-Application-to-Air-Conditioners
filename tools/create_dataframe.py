@@ -60,10 +60,15 @@ def create_harmonic_distortion_dataframe(no_fault_folder: str, fault_folder: str
     df_new.to_pickle("./data/harmonic_" + name + ".pkl")
 
 if __name__ == "__main__":
-    no_fault_folder = './raw_data/low_18_cold_fullyOpen_noFault'
-    fault_folder = './raw_data/low_18_cold_fullyOpen_airFilterFault'
-    name = 'low_18_cold_fullyOpen'
-    create_current_dataframe(no_fault_folder, fault_folder, name)
-    create_power_dataframe(no_fault_folder, fault_folder, name)
-    create_reactive_power_dataframe(no_fault_folder, fault_folder, name)
+    # no_fault_folder = './raw_data/low_18_cold_fullyOpen_noFault'
+    # fault_folder = './raw_data/low_18_cold_fullyOpen_airFilterFault'
+    # name = 'low_18_cold_fullyOpen'
+    # create_current_dataframe(no_fault_folder, fault_folder, name)
+    # create_power_dataframe(no_fault_folder, fault_folder, name)
+    # create_reactive_power_dataframe(no_fault_folder, fault_folder, name)
+    # create_harmonic_distortion_dataframe(no_fault_folder, fault_folder, name)
+
+    no_fault_folder = './raw_data/healthy'
+    fault_folder = './raw_data/faulty'
+    name = 'group'
     create_harmonic_distortion_dataframe(no_fault_folder, fault_folder, name)
