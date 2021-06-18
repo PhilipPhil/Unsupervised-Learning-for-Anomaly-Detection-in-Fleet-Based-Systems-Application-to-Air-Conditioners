@@ -5,7 +5,7 @@ from random import seed
 from random import random
 from random import randint
 
-def generate_ac_data(dir: str, state: str, AC_COUNT = 10, ALPHA = 0.93, N = 400) -> None:
+def generate_ac_data(dir: str, state: str, AC_COUNT = 10, ALPHA = 0.9, N = 400) -> None:
     data = pd.read_pickle(dir)
 
     # Remove first 3 minutes, and last 30 seconds
