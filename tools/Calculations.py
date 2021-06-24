@@ -1,6 +1,6 @@
 import numpy as np
 
-class Conversion:
+class Calculations:
 
     VOLTAGE_CHANNEL = 0
     CURRENT_CHANNEL = 1
