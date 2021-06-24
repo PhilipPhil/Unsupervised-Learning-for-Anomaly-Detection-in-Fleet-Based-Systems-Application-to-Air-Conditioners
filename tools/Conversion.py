@@ -16,7 +16,7 @@ class Conversion:
     DEFAULT_SAMPLE_RATE = 10000  # Hz
     DEFAULT_MAINS_FREQ = 50  # Hz
     
-    def __init__(self, data: np.array):
+    def __init__(self, data: np.ndarray):
         self.__voltage, self.__current = self.__prepare_date(data)
         
         self.real_power = self.__realPower()
@@ -24,7 +24,7 @@ class Conversion:
         self.reactive_power = self.__reactivePower()
         self.thd = self.__totalHarmonicDistortion()
 
-    def __prepare_date(self, data: np.array):
+    def __prepare_date(self, data: np.ndarray):
         recentered = data - data.mean(axis=0)
         recentered[:, self.VOLTAGE_CHANNEL] *= self.DEFAULT_VOLTAGE_SCALING
         recentered[:, self.CURRENT_CHANNEL] *= self.DEFAULT_CURRENT_SCALING
