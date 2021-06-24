@@ -24,7 +24,7 @@ class Conversion:
         self.reactive_power = self.__reactivePower()
         self.thd = self.__totalHarmonicDistortion()
 
-    def __prepare_date(self, data: np.ndarray):
+    def __prepare_date(self, data: np.ndarray) -> np.ndarray:
         recentered = data - data.mean(axis=0)
         recentered[:, self.VOLTAGE_CHANNEL] *= self.DEFAULT_VOLTAGE_SCALING
         recentered[:, self.CURRENT_CHANNEL] *= self.DEFAULT_CURRENT_SCALING
@@ -36,21 +36,21 @@ class Conversion:
         current = self.current.reshape((1500, 200))
         return voltage, current
     
-    def __realPower(self):
+    def __realPower(self) -> np.ndarray:
         real_power = (self.__voltage * self.__current).mean(axis = 1)
         return real_power
 
-    def __apparentPower(self):
+    def __apparentPower(self) -> np.ndarray:
         V = np.sqrt(np.mean(np.square(self.__voltage), axis = 1))
         A = np.sqrt(np.mean(np.square(self.__current), axis = 1))
         apparent_power = V * A
         return apparent_power
 
-    def __reactivePower(self):
+    def __reactivePower(self) -> np.ndarray:
         reactive_power = np.sqrt(self.apparent_power ** 2 - self.real_power ** 2)
         return reactive_power
 
-    def __totalHarmonicDistortion(self):
+    def __totalHarmonicDistortion(self) -> np.ndarray:
         cycles = self.__current
 
         # half + 1 of the double-sided frequency response
