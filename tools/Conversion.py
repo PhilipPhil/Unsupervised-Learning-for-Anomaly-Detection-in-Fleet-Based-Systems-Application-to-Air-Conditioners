@@ -17,14 +17,14 @@ class Conversion:
     DEFAULT_MAINS_FREQ = 50  # Hz
     
     def __init__(self, data: np.ndarray):
-        self.__voltage, self.__current = self.__prepare_date(data)
+        self.__voltage, self.__current = self.__prepareData(data)
         
         self.real_power = self.__realPower()
         self.apparent_power = self.__apparentPower()
         self.reactive_power = self.__reactivePower()
         self.thd = self.__totalHarmonicDistortion()
 
-    def __prepare_date(self, data: np.ndarray) -> np.ndarray:
+    def __prepareData(self, data: np.ndarray) -> np.ndarray:
         recentered = data - data.mean(axis=0)
         recentered[:, self.VOLTAGE_CHANNEL] *= self.DEFAULT_VOLTAGE_SCALING
         recentered[:, self.CURRENT_CHANNEL] *= self.DEFAULT_CURRENT_SCALING
