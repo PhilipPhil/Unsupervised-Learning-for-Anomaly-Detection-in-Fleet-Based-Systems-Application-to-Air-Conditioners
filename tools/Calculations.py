@@ -53,20 +53,12 @@ class Calculations:
     def __totalHarmonicDistortion(self) -> np.ndarray:
         cycles = self.__current
 
-        # half + 1 of the double-sided frequency response
-        fft_v = np.abs(np.fft.rfft(cycles)) / cycles.shape[-1]
+        fft = np.abs(np.fft.rfft(cycles))
 
-        # single-sided response, so double all non-zeroth coefficients
-        fft_v[:, 1:] *= 2
-
-        # DC component is just the mean. numpy ellipsis (...) allows us to iterate over last axis without known rank.
-        fft_v[..., 0] = np.mean(cycles)
-
-        # read the fundamental and harmonic magnitudes from the appropriate slices
-        w_fundamental = fft_v[..., 1]
-        harmonic_magnitudes = fft_v[..., 2:]
-
-        w_harmonics = np.sqrt(np.sum((np.power(harmonic_magnitudes, 2)), axis=-1))
-
+        w_fundamental = fft[..., 1]
+        harmonic_magnitudes = fft[..., 2:]
+        
+        w_harmonics = np.sqrt(np.sum(harmonic_magnitudes ** 2, axis=-1))
         thd = w_harmonics / (w_fundamental + 1e-15)
+        
         return thd
