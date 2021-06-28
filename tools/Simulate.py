@@ -13,9 +13,10 @@ class Simulate:
     no_fault_folder = './raw_data/healthy'
     fault_folder = './raw_data/faulty'
 
-    ALPHA = 0.9
-    N_acs = 10
-    N_rows = 400
+    def __init__(self,  ALPHA = 0.9, N_acs = 10, N_rows = 400) -> None:
+        self.ALPHA = ALPHA
+        self.N_acs = N_acs
+        self.N_rows = N_rows
 
     def create_master_df(self) -> None:
         data = []
@@ -32,9 +33,8 @@ class Simulate:
         data = pd.read_pickle(self.master_dir)
         normalized_df = (data - data.min()) / (data.max() - data.min())
 
-        healthy = normalized_df[normalized_df[-1]==0]
-        faulty = normalized_df[normalized_df[-1]==1]
-
+        healthy = normalized_df[normalized_df[0]==0]
+        faulty = normalized_df[normalized_df[1]==1]
 
         for i in range(self.N_acs):
             ac_data = []
@@ -50,4 +50,4 @@ class Simulate:
                     ac_data.append(healthy.iloc[index,:])
             
             ac_data = pd.DataFrame(ac_data).reset_index(drop=True)
-            ac_data.to_pickle("./ACs/ac_" + "_" + str(i) + ".pkl")
+            ac_data.to_pickle("./ACs/ac_" + str(i) + ".pkl")
