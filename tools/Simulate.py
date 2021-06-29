@@ -6,7 +6,6 @@ from random import randint
 
 from tools.Calculations import Calculations
 
-
 class Simulate:
 
     master_dir = "./data/master_dataframe.pkl"
