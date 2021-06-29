@@ -33,7 +33,7 @@ class Simulate:
         normalized_df = (data - data.min()) / (data.max() - data.min())
 
         healthy = normalized_df[normalized_df[0]==0]
-        faulty = normalized_df[normalized_df[1]==1]
+        faulty = normalized_df[normalized_df[0]==1]
 
         for i in range(self.N_acs):
             ac_data = []
