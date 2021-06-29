@@ -2,7 +2,7 @@ from tools.Cluster import Cluster
 import pandas as pd
 from sklearn.ensemble import IsolationForest
 
-class iForest(Cluster):
+class Iforest(Cluster):
     def cluster(self, x_row: pd.DataFrame) -> list:
         clf = IsolationForest().fit(x_row)
         labels = clf.decision_function(x_row)

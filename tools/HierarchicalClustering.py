@@ -1,7 +1,7 @@
 from tools.Cluster import Cluster
 import pandas as pd
-from sklearn.cluster import AgglomerativeClustering
 from collections import Counter
+from sklearn.cluster import AgglomerativeClustering
 
 class HierarchicalClustering(Cluster):
     affinity='euclidean'
