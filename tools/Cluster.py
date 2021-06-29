@@ -31,7 +31,7 @@ class Cluster(ABC):
         anomaly_score, y = [], []
         
         for row in range(self.n_rows):
-            if row % (self.n_rows//20) == 0: print(row)
+            if row % (self.n_rows//20) == 0: print(str(int(row/self.n_rows * 100)) + '% complete')
                 
             x_row, y_row = self.get_X_Y(row)
             
