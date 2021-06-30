@@ -40,7 +40,7 @@ class Cluster(ABC):
             anomaly_score_row = self.cluster(x_row)
             anomaly_score += anomaly_score_row
             y += y_row
-                    
+        print('100% complete')   
         return anomaly_score, y
     
     def auc_score(self, anomaly_score: list, y: list) -> int:
