@@ -11,7 +11,7 @@ class Calculations:
 
     # rough assumption: 18 (A pp) covers ~70% of the dynamic range (15 bits because we have 16-bit unsigned int)
     # hence 0.7 * 2 ** 15
-    DEFAULT_CURRENT_SCALING = 18 / (0.7 * 2 ** 15)
+    DEFAULT_CURRENT_SCALING = 100 * 18 / (0.7 * 2 ** 15)
 
     DEFAULT_SAMPLE_RATE = 10000  # Hz
     DEFAULT_MAINS_FREQ = 50  # Hz
