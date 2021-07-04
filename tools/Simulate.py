@@ -8,9 +8,9 @@ from tools.Calculations import Calculations
 
 class Simulate:
 
-    master_dir = "./data/master_dataframe.pkl"
-    no_fault_folder = './raw_data/healthy'
-    fault_folder = './raw_data/faulty'
+    master_dir = "./data/data_frame/master_dataframe.pkl"
+    no_fault_folder = './data/raw_data/healthy'
+    fault_folder = './data/raw_data/faulty'
 
     def __init__(self,  ALPHA = 0.9, N_acs = 10, N_rows = 100) -> None:
         self.ALPHA = ALPHA
@@ -49,4 +49,4 @@ class Simulate:
                     ac_data.append(healthy.iloc[index,:])
             
             ac_data = pd.DataFrame(ac_data).reset_index(drop=True)
-            ac_data.to_pickle("./ACs/ac_" + str(i) + ".pkl")
+            ac_data.to_pickle("./data/ACs/ac_" + str(i) + ".pkl")

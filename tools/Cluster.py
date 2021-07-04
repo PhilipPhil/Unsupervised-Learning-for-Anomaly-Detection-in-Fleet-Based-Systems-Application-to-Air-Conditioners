@@ -9,8 +9,8 @@ class Cluster(ABC):
     
     def __init__(self):
         self.ACs = []
-        for ac_name in os.listdir('./ACs'):
-            ac_i = pd.read_pickle('./ACs/'+ac_name)
+        for ac_name in os.listdir('./data/ACs'):
+            ac_i = pd.read_pickle('./data/ACs/'+ac_name)
             self.ACs.append(ac_i)
         self.n_rows = len(self.ACs[0])
         super().__init__()
