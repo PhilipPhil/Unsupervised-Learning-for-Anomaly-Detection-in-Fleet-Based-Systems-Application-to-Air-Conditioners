@@ -9,6 +9,7 @@ class KNN(Cluster):
         x_row = (x_row - x_row.min()) / (x_row.max() - x_row.min())
         nbrs = NearestNeighbors(n_neighbors=len(x_row)//2+1, algorithm='brute', metric=self.metric).fit(x_row)
         distances, indices = nbrs.kneighbors(x_row)
-        labbels = distances.sum(axis=1)
-        anomaly_score = (labbels - min(labbels)) / (max(labbels) - min(labbels))
+        labbels = distances.mean(axis=1)
+        anomaly_score = labbels
+        # anomaly_score = labbels / 60 # Normalize
         return anomaly_score.tolist()
