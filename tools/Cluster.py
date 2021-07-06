@@ -57,5 +57,5 @@ class Cluster(ABC):
         return accuracy, precision, recall, f1, yhat
     
     @abstractmethod
-    def cluster(self, x_row: pd.DataFrame) -> (list):
+    def cluster(self, x_row: pd.DataFrame) -> list:
         pass
