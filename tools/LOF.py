@@ -7,8 +7,7 @@ class LOF(Cluster):
 
     def cluster(self, x_row: pd.DataFrame) -> list:
         x_row = (x_row - x_row.min()) / (x_row.max() - x_row.min())
-        clf = LocalOutlierFactor(n_neighbors=len(x_row)//2, algorithm='brute', metric=self.metric).fit(x_row)
-        labels = clf.negative_outlier_factor_ * (-1)
+        clf = LocalOutlierFactor(n_neighbors=len(x_row)//2+1, algorithm='brute', novelty=True, metric=self.metric).fit(x_row)
+        labels = clf.decision_function(x_row) *(-1)
         anomaly_score = labels
-        # anomaly_score = labels / 20 # Normalize
         return anomaly_score.tolist()

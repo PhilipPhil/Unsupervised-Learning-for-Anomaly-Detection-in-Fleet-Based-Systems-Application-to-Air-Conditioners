@@ -11,5 +11,4 @@ class KNN(Cluster):
         distances, indices = nbrs.kneighbors(x_row)
         labbels = distances.mean(axis=1)
         anomaly_score = labbels
-        # anomaly_score = labbels / 60 # Normalize
         return anomaly_score.tolist()
