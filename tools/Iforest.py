@@ -6,6 +6,5 @@ class Iforest(Cluster):
     def cluster(self, x_row: pd.DataFrame) -> list:
         clf = IsolationForest().fit(x_row)
         labels = clf.decision_function(x_row) * (-1)
-        # anomaly_score = 1 - (labels - min(labels))/(max(labels) - min(labels))
         anomaly_score = labels
         return anomaly_score.tolist()
