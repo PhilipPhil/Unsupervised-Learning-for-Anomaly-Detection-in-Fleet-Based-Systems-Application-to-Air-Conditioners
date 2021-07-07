@@ -12,7 +12,7 @@ class Simulate:
     no_fault_folder = './data/raw_data/healthy'
     fault_folder = './data/raw_data/faulty'
 
-    def __init__(self,  ALPHA = 0.9, N_acs = 10, N_rows = 100) -> None:
+    def __init__(self, N_rows = 100, ALPHA = 0.9, N_acs = 10) -> None:
         self.ALPHA = ALPHA
         self.N_acs = N_acs
         self.N_rows = N_rows
