@@ -7,7 +7,7 @@ from sklearn.cluster import AgglomerativeClustering
 class HierarchicalClustering(Cluster):
     affinity='euclidean'
     linkage='average'
-    distance_threshold = 18.95 # Known from expert knowlege
+    distance_threshold = 5 # Known from expert knowlege
     
     def cluster(self, x_row: pd.DataFrame) -> list:
         clustering = AgglomerativeClustering(n_clusters=None, affinity=self.affinity, linkage=self.linkage, distance_threshold=self.distance_threshold).fit(x_row)
