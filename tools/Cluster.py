@@ -76,14 +76,15 @@ class Cluster(ABC):
         accuracy = accuracy_score(y, yhat)
         precision = precision_score(y, yhat)
         recall = recall_score(y, yhat)
-        f1 = f1_score(y, yhat)
-        return accuracy, precision, recall, f1
+        # f1 = f1_score(y, yhat)
+        f2 = fbeta_score(y, yhat, beta=2)
+        return accuracy, precision, recall, f2
 
     def get_scores(self):
         AUC = self.auc_score(self.anomaly_score, self.y)
         print('AUC score: ' + str(AUC))
         anomaly_score = (self.anomaly_score - self.anomaly_score.min()) / (self.anomaly_score.max() - self.anomaly_score.min())
-        print('threashold, accuracy, precision, recall, f1')
+        print('threashold, accuracy, precision, recall, f2')
         for threashold in [0.05,0.1,0.15,0.2,0.25,0.3,0.35,0.4,0.45,0.5,0.55,0.6,0.65,0.7,0.75,0.8,0.85,0.9,0.95]:
             print(threashold, self.score(anomaly_score, self.y, threashold))
 

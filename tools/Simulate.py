@@ -40,7 +40,7 @@ class Simulate:
             fault_counts = 1
             for _ in range(self.N_rows):
                 alpha = random()
-                if alpha > self.ALPHA and fault_counts < self.N_acs//2:
+                if alpha > self.ALPHA and fault_counts < self.N_acs//2-1:
                     fault_counts += 1
                     index = randint(0,len(faulty)-1)
                     ac_data.append(faulty.iloc[index,:])
