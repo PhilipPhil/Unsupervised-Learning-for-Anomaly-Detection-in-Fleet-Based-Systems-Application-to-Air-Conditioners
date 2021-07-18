@@ -4,10 +4,11 @@ from sklearn.neighbors import NearestNeighbors
 
 class KNN(Cluster):
     metric ='euclidean'
+    k = 0.5
 
     def cluster(self, x_row: pd.DataFrame) -> list:
         x_row = (x_row - x_row.min()) / (x_row.max() - x_row.min())
-        nbrs = NearestNeighbors(n_neighbors=len(x_row)//2+1, algorithm='brute', metric=self.metric).fit(x_row)
+        nbrs = NearestNeighbors(n_neighbors=int(len(x_row) * self.k), algorithm='brute', metric=self.metric).fit(x_row)
         distances, indices = nbrs.kneighbors(x_row)
         labbels = distances.mean(axis=1)
         anomaly_score = labbels
