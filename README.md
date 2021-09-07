@@ -1,4 +1,7 @@
-# Unsupervised-Learning-for-Anomaly-Detection-in-Fleet-Based-Systems-Application-to-Air-Conditioners
+# Unsupervised Learning for Anomaly Detection in Fleet Based Systems Application to Air Conditioners
+
+Please read pdf for full information. [LINK](https://github.com/PhilipPhil/Unsupervised-Learning-for-Anomaly-Detection-in-Fleet-Based-Systems-Application-to-Air-Conditioners/blob/master/Unsupervised_Learning_for_Anomaly_Detection_in_Fleet_Based_Systems_Application_to_Air_Conditioners.pdf)
+
 ### AUC scores by variable and parameters
 ![auc_param_plot](auc_param_plot.png)
 This plot contains the AUC scores for the six algorithms corresponding to each hyperparameter value.
